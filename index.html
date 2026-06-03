@@ -241,12 +241,15 @@
 
     @media (max-width: 720px) {
       body { font-size: 17px; }
+      .nav-name { display: none; }
+      .nav-links { gap: 18px; }
+      .nav-inner, main { padding-left: 22px; padding-right: 22px; }
       .about-grid { grid-template-columns: 1fr; gap: 30px; }
       .about-photo { max-width: 300px; margin: 0 auto; }
       .photo-info { align-items: center; text-align: center; }
-      .about-text h1 { font-size: 38px; }
-      .nav-inner, main { padding-left: 22px; padding-right: 22px; }
-      .nav-links { gap: 18px; }
+      .about-text h1 { font-size: 38px; text-align: center; }
+      .about-text .role { text-align: center; }
+      .about-text .fields { text-align: center; }
       .teaching-item { flex-direction: column; gap: 2px; }
       .teaching-meta { text-align: left; }
     }
