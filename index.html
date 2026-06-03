@@ -389,12 +389,30 @@
   <footer>Last updated May 2026</footer>
 
   <script>
+    // Abstract toggles + expand tracking
     document.querySelectorAll('.abstract-toggle').forEach(function (btn) {
       var el = document.getElementById(btn.dataset.target);
       btn.addEventListener('click', function () {
         var open = el.classList.toggle('expanded');
         btn.classList.toggle('open', open);
         btn.firstChild.textContent = open ? 'Read less ' : 'Read more ';
+        if (open) {
+          var title = btn.closest('.paper').querySelector('.paper-title').textContent.trim();
+          gtag('event', 'abstract_expand', { paper_title: title });
+        }
+      });
+    });
+
+    // CV click tracking
+    document.querySelector('.nav-cv').addEventListener('click', function () {
+      gtag('event', 'cv_click');
+    });
+
+    // Paper link click tracking
+    document.querySelectorAll('.paper-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var title = link.closest('.paper').querySelector('.paper-title').textContent.trim();
+        gtag('event', 'paper_link_click', { paper_title: title });
       });
     });
   </script>
