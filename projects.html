@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Side projects by Mateus Morais – personal technical projects outside of academic research.">
+  <title>Side Projects – Mateus Morais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FE8JDE9V4Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FE8JDE9V4Y');
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:   #fcfaf5;
+      --card:    #ffffff;
+      --ink:     #211f18;
+      --muted:   #6c6557;
+      --faint:   #9a9382;
+      --rule:    #efe9dd;
+      --green:   #2f5d43;
+      --green-d: #1e4631;
+      --nav-h:   60px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Newsreader", Georgia, serif;
+      font-optical-sizing: auto;
+      font-size: 18px;
+      line-height: 1.66;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: "";
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--green);
+      z-index: 200;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      height: var(--nav-h);
+      background: rgba(252, 250, 245, 0.85);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-inner {
+      max-width: 880px; margin: 0 auto; padding: 0 36px; height: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-name {
+      font-family: "Newsreader", serif;
+      font-size: 19px; font-weight: 600; letter-spacing: -0.01em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links a {
+      font-family: "Public Sans", sans-serif;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
+      color: var(--muted); text-decoration: none;
+      transition: color 0.18s ease;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links a.nav-cv { color: var(--green); }
+    .nav-links a.nav-cv:hover { color: var(--green-d); }
+    .nav-links a.nav-active { color: var(--ink); font-weight: 600; }
+
+    main { max-width: 880px; margin: 0 auto; padding: 0 36px; }
+
+    /* ── Page header ── */
+    .page-header { padding: 72px 0 54px; }
+    .page-header h1 {
+      font-size: 42px; font-weight: 500; letter-spacing: -0.02em;
+      line-height: 1.1; margin-bottom: 14px;
+    }
+    .page-header p {
+      font-size: 18px; color: var(--muted); max-width: 520px;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-family: "Public Sans", sans-serif;
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--faint);
+      margin-bottom: 38px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .section-label::after {
+      content: ""; flex: 1; height: 1px; background: var(--rule);
+    }
+
+    /* ── Project card ── */
+    .project {
+      padding: 36px 0 48px;
+      border-top: 1px solid var(--rule);
+    }
+    .project-title {
+      font-size: 26px; font-weight: 500; line-height: 1.25;
+      margin-bottom: 10px; color: var(--ink);
+    }
+    .project-status {
+      display: inline-block;
+      font-family: "Public Sans", sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted); border: 1px solid var(--rule);
+      border-radius: 3px; padding: 2px 8px;
+      margin-bottom: 16px;
+    }
+    .project-desc {
+      font-size: 17.5px; line-height: 1.72; color: #34322a;
+      margin-bottom: 20px; max-width: 680px;
+    }
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .tag {
+      font-family: "Public Sans", sans-serif;
+      font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em;
+      color: var(--green); background: rgba(47,93,67,0.07);
+      border-radius: 3px; padding: 3px 10px;
+    }
+
+    footer {
+      max-width: 880px; margin: 0 auto;
+      padding: 30px 36px 48px; border-top: 1px solid var(--rule);
+      font-family: "Public Sans", sans-serif;
+      font-size: 12px; color: var(--faint);
+    }
+
+    @media (max-width: 720px) {
+      .nav-name { display: none; }
+      .nav-links { gap: 18px; }
+      .nav-inner, main { padding-left: 22px; padding-right: 22px; }
+      .page-header h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-name">Mateus Morais</a>
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#teaching">Teaching</a>
+        <a href="cv.html" class="nav-cv">CV</a>
+        <a href="projects.html" class="nav-active">Side Projects</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="page-header">
+      <h1>Side Projects</h1>
+      <p>Personal technical projects outside of my academic research.</p>
+    </div>
+
+    <p class="section-label">In Progress</p>
+
+    <div class="project">
+      <div class="project-title">Chess Coach</div>
+      <span class="project-status">Work in progress</span>
+      <p class="project-desc">
+        A local-first command-line tool that fetches your Chess.com games, runs
+        move-by-move analysis through the Stockfish engine, and generates
+        personalised coaching reports using a locally-run language model. Every
+        coaching insight is evidence-grounded — linked back to a specific game,
+        move, and tactical motif — rather than generic advice. The tool also
+        builds a training queue from your own missed positions for spaced-repetition
+        review, and models time-management patterns across different time controls.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Stockfish</span>
+        <span class="tag">Local LLM</span>
+        <span class="tag">Fine-tuning</span>
+        <span class="tag">RAG</span>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>Personal projects page</footer>
+
+</body>
+</html>
