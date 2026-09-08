@@ -113,12 +113,7 @@
       font-size: 17.5px; line-height: 1.72; color: var(--body);
       margin-bottom: 20px; max-width: 680px; text-wrap: pretty;
     }
-    .project-tags {
-      font-family: "Public Sans", sans-serif;
-      font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em;
-      color: var(--green);
-    }
-    .project-tags .sep { margin: 0 6px; color: var(--faint); }
+    .project-desc:last-child { margin-bottom: 0; }
 
     footer {
       max-width: 880px; margin: 0 auto;
@@ -164,15 +159,15 @@
       <p class="project-title">Chess Coach</p>
       <p class="project-status">Work in progress</p>
       <p class="project-desc">
-        A local-first command-line tool that fetches your Chess.com games, runs
-        move-by-move analysis through the Stockfish engine, and generates
-        personalised coaching reports using a locally-run language model. Every
-        coaching insight is evidence-grounded — linked back to a specific game,
-        move, and tactical motif — rather than generic advice. The tool also
-        builds a training queue from your own missed positions for spaced-repetition
-        review, and models time-management patterns across different time controls.
+        A chess coaching app that runs on your own computer. It connects to your
+        Chess.com or Lichess account, studies the games you have actually played,
+        and turns them into personal lessons: a guided replay of where each game
+        turned, practice puzzles built from your own missed chances, and a coach
+        you can ask about any position. Every piece of advice is checked against a
+        chess engine before you see it, so it points to a real moment in one of
+        your games instead of offering generic tips. It also estimates your playing
+        strength from your moves and tracks how it changes over time.
       </p>
-      <p class="project-tags">Python<span class="sep">·</span>Stockfish<span class="sep">·</span>Local LLM<span class="sep">·</span>Fine-tuning<span class="sep">·</span>RAG</p>
     </div>
 
   </main>
