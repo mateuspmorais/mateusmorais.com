@@ -20,12 +20,12 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --paper:   #fcfaf5;
-      --card:    #ffffff;
-      --ink:     #211f18;
-      --muted:   #6c6557;
-      --faint:   #9a9382;
-      --rule:    #efe9dd;
+      --paper:   #ffffff;
+      --ink:     #1a1c1e;
+      --body:    #34363a;
+      --muted:   #6b6f73;
+      --faint:   #9aa0a6;
+      --rule:    #e8eaec;
       --green:   #2f5d43;
       --green-d: #1e4631;
       --nav-h:   60px;
@@ -44,31 +44,25 @@
       text-rendering: optimizeLegibility;
     }
 
-    body::before {
-      content: "";
-      position: fixed; top: 0; left: 0; right: 0;
-      height: 3px; background: var(--green);
-      z-index: 200;
-    }
-
     /* ── Nav ── */
     nav {
       position: sticky; top: 0; z-index: 100;
-      height: var(--nav-h);
-      background: rgba(252, 250, 245, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--rule);
     }
     .nav-inner {
-      max-width: 880px; margin: 0 auto; padding: 0 36px; height: 100%;
-      display: flex; align-items: center; justify-content: space-between;
+      max-width: 880px; margin: 0 auto; padding: 0 36px; height: var(--nav-h);
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
     }
     .nav-name {
       font-family: "Newsreader", serif;
       font-size: 19px; font-weight: 600; letter-spacing: -0.01em;
       color: var(--ink); text-decoration: none;
     }
-    .nav-links { display: flex; gap: 30px; align-items: center; }
+    .nav-links {
+      display: flex; flex-wrap: wrap; gap: 12px 30px; align-items: center;
+    }
     .nav-links a {
       font-family: "Public Sans", sans-serif;
       font-size: 13px; font-weight: 500; letter-spacing: 0.02em;
@@ -98,13 +92,9 @@
       font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em;
       text-transform: uppercase; color: var(--faint);
       margin-bottom: 38px;
-      display: flex; align-items: center; gap: 14px;
-    }
-    .section-label::after {
-      content: ""; flex: 1; height: 1px; background: var(--rule);
     }
 
-    /* ── Project card ── */
+    /* ── Project ── */
     .project {
       padding: 36px 0 48px;
       border-top: 1px solid var(--rule);
@@ -114,27 +104,21 @@
       margin-bottom: 10px; color: var(--ink);
     }
     .project-status {
-      display: inline-block;
       font-family: "Public Sans", sans-serif;
       font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted); border: 1px solid var(--rule);
-      border-radius: 3px; padding: 2px 8px;
+      text-transform: uppercase; color: var(--muted);
       margin-bottom: 16px;
     }
     .project-desc {
-      font-size: 17.5px; line-height: 1.72; color: #34322a;
-      margin-bottom: 20px; max-width: 680px;
+      font-size: 17.5px; line-height: 1.72; color: var(--body);
+      margin-bottom: 20px; max-width: 680px; text-wrap: pretty;
     }
     .project-tags {
-      display: flex; flex-wrap: wrap; gap: 8px;
-    }
-    .tag {
       font-family: "Public Sans", sans-serif;
       font-size: 11.5px; font-weight: 600; letter-spacing: 0.03em;
-      color: var(--green); background: rgba(47,93,67,0.07);
-      border-radius: 3px; padding: 3px 10px;
+      color: var(--green);
     }
+    .project-tags .sep { margin: 0 6px; color: var(--faint); }
 
     footer {
       max-width: 880px; margin: 0 auto;
@@ -144,9 +128,10 @@
     }
 
     @media (max-width: 720px) {
+      body { font-size: 17px; }
       .nav-name { display: none; }
-      .nav-links { gap: 18px; }
-      .nav-inner, main { padding-left: 22px; padding-right: 22px; }
+      .nav-links { gap: 12px 18px; }
+      .nav-inner, main, footer { padding-left: 22px; padding-right: 22px; }
       .page-header h1 { font-size: 32px; }
     }
   </style>
@@ -176,8 +161,8 @@
     <p class="section-label">In Progress</p>
 
     <div class="project">
-      <div class="project-title">Chess Coach</div>
-      <span class="project-status">Work in progress</span>
+      <p class="project-title">Chess Coach</p>
+      <p class="project-status">Work in progress</p>
       <p class="project-desc">
         A local-first command-line tool that fetches your Chess.com games, runs
         move-by-move analysis through the Stockfish engine, and generates
@@ -187,13 +172,7 @@
         builds a training queue from your own missed positions for spaced-repetition
         review, and models time-management patterns across different time controls.
       </p>
-      <div class="project-tags">
-        <span class="tag">Python</span>
-        <span class="tag">Stockfish</span>
-        <span class="tag">Local LLM</span>
-        <span class="tag">Fine-tuning</span>
-        <span class="tag">RAG</span>
-      </div>
+      <p class="project-tags">Python<span class="sep">·</span>Stockfish<span class="sep">·</span>Local LLM<span class="sep">·</span>Fine-tuning<span class="sep">·</span>RAG</p>
     </div>
 
   </main>
